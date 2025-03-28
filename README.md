@@ -5,6 +5,7 @@ Dovrai ricreare l'interfaccia utente mostrata negli screenshot `SCREENSHOT_LIST.
 
 ### Tecnologie da utilizzare
 - Expo
+- Expo Router
 - React Native
 - Nessuna libreria esterna aggiuntiva
 
