@@ -7,6 +7,7 @@ export default function RootLayout() {
 		<Stack
 			screenOptions={{
 				headerShown: true,
+				header: () => <Header />,
 				contentStyle: { backgroundColor: Colors.primary },
 				gestureEnabled: true,
 			}}
@@ -14,16 +15,13 @@ export default function RootLayout() {
 			<Stack.Screen
 				name="index"
 				options={{
-					header: () => <Header />,
 					title: "Stasera in TV",
 				}}
 			/>
 			<Stack.Screen
-				name="details/[id]"
+				name="details/[progId]"
 				options={{
 					title: "Details",
-
-					contentStyle: { backgroundColor: "yellow" },
 					headerStyle: {
 						backgroundColor: "blue",
 					},
