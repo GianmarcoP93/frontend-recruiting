@@ -10,7 +10,10 @@ export function HeaderIndex() {
 		<View style={[styles.container, { marginTop: top, marginLeft: left, marginRight: right }]}>
 			<View style={styles.leftContainer}>
 				<TouchableOpacity onPress={() => {}}>
-					<Image source={require("../../assets/icons/menu.png")} style={styles.icon} />
+					<Image
+						source={require("../../assets/icons/menu.png")}
+						style={[styles.icon, { width: 30, height: 30 }]}
+					/>
 				</TouchableOpacity>
 			</View>
 
