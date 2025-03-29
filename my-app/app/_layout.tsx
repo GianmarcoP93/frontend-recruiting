@@ -22,9 +22,7 @@ export default function RootLayout() {
 				name="details/[progId]"
 				options={{
 					title: "Details",
-					headerStyle: {
-						backgroundColor: "blue",
-					},
+					headerTransparent: true,
 				}}
 			/>
 		</Stack>

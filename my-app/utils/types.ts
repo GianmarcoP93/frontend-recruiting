@@ -1,3 +1,14 @@
+export interface ProgramItem {
+	piat: string;
+	canale: {
+		name: string;
+		logo: string;
+		number: string | number;
+		live?: string;
+	};
+	prog: Programma;
+}
+
 export interface ProgramData {
 	stasera: PlatformItem[];
 	at: string;

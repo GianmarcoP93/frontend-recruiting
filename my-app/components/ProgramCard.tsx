@@ -2,7 +2,7 @@ import Colors from "@/constants/Colors";
 import { ProgramCardProps } from "@/utils/types";
 import { useRouter } from "expo-router";
 import React from "react";
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Dimensions } from "react-native";
 
 export default function ProgramCard({
 	progId,
@@ -37,8 +37,8 @@ export default function ProgramCard({
 
 const styles = StyleSheet.create({
 	cardContainer: {
-		width: "100%",
-		height: 300,
+		width: Dimensions.get("window").width - 32,
+		height: 250,
 		borderRadius: 8,
 		overflow: "hidden",
 		marginVertical: 15,
