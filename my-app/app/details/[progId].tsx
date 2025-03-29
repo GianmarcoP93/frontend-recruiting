@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Text, View, StyleSheet, Image, Dimensions, ScrollView, TouchableOpacity } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import data from "@/data.json";
@@ -7,10 +7,20 @@ import { formatLocalTime } from "@/utils/dateUtils";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { piatMap } from "@/utils/piatName";
 import Colors from "@/constants/Colors";
+import { useCurrentProg } from "@/contexts/currentProgContext";
+import { getAllPrograms } from "@/utils/getAllPrograms";
 
 export default function Details() {
-	const programData = data as ProgramData;
 	const { progId } = useLocalSearchParams();
+	const { setProgId } = useCurrentProg();
+
+	useEffect(() => {
+		if (Array.isArray(progId)) {
+			setProgId(progId[0]);
+		} else {
+			setProgId(progId);
+		}
+	}, [progId, setProgId]);
 
 	const [isFavorite, setIsFavorite] = useState(false);
 
@@ -19,16 +29,8 @@ export default function Details() {
 	};
 
 	const program: ProgramItem | undefined = useMemo(() => {
-		return programData.stasera
-			.flatMap(item =>
-				item.canali.map(canaleItem => ({
-					piat: item.piat,
-					canale: canaleItem.canale,
-					prog: canaleItem.prog,
-				}))
-			)
-			.find(elem => elem.prog && elem.prog.id === progId);
-	}, [programData, progId]);
+		return getAllPrograms().find(elem => elem.prog && elem.prog.id === progId);
+	}, [progId]);
 
 	if (!program) {
 		return (
