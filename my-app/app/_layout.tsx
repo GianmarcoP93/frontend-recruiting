@@ -5,7 +5,6 @@ import Colors from "@/constants/Colors";
 import { HeaderIndex } from "@/components/Header/HeaderIndex";
 import { HeaderDetail } from "@/components/Header/HeaderDetails";
 import { CurrentProgProvider } from "@/contexts/currentProgContext";
-import { Animated } from "react-native";
 
 export default function RootLayout() {
 	return (
