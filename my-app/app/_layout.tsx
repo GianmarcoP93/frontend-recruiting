@@ -5,6 +5,7 @@ import Colors from "@/constants/Colors";
 import { HeaderIndex } from "@/components/Header/HeaderIndex";
 import { HeaderDetail } from "@/components/Header/HeaderDetails";
 import { CurrentProgProvider } from "@/contexts/currentProgContext";
+import { Animated } from "react-native";
 
 export default function RootLayout() {
 	return (
@@ -25,10 +26,14 @@ export default function RootLayout() {
 				/>
 				<Stack.Screen
 					name="details/[progId]"
-					options={{
-						title: "Details",
-						headerTransparent: true,
-						header: () => <HeaderDetail />,
+					options={({ route }: { route: { params?: { animation?: string } } }) => {
+						const animationType = route.params?.animation === "fade" ? "fade" : "slide_from_right";
+						return {
+							title: "Details",
+							headerTransparent: true,
+							header: () => <HeaderDetail />,
+							animation: animationType,
+						};
 					}}
 				/>
 			</Stack>

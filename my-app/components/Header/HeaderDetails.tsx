@@ -27,14 +27,14 @@ export function HeaderDetail() {
 	const goPrev = () => {
 		if (canGoPrev) {
 			const prevProg = allPrograms[currentIndex - 1];
-			router.replace(`/details/${prevProg.prog.id}`);
+			router.replace(`/details/${prevProg.prog.id}?animation=fade`);
 		}
 	};
 
 	const goNext = () => {
 		if (canGoNext) {
 			const nextProg = allPrograms[currentIndex + 1];
-			router.replace(`/details/${nextProg.prog.id}`);
+			router.replace(`/details/${nextProg.prog.id}?animation=fade`);
 		}
 	};
 
