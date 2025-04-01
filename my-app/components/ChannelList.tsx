@@ -9,7 +9,7 @@ interface ChannelListProps {
 	canali: CanaleItem[];
 }
 
-export default function ChannelList({ canali }: ChannelListProps) {
+export default React.memo(function ChannelList({ canali }: ChannelListProps) {
 	const flatListRef = useRef<FlatList>(null);
 
 	useEffect(() => {
@@ -42,4 +42,4 @@ export default function ChannelList({ canali }: ChannelListProps) {
 			}}
 		/>
 	);
-}
+});
