@@ -9,6 +9,7 @@ import { piatMap } from "@/utils/piatName";
 import Colors from "@/constants/Colors";
 import { useCurrentProg } from "@/contexts/currentProgContext";
 import { getAllPrograms } from "@/utils/getAllPrograms";
+import DynamicTextWrapper from "@/components/DynamicTextWrapper";
 
 export default function Details() {
 	const { progId } = useLocalSearchParams();
@@ -42,7 +43,7 @@ export default function Details() {
 
 	const platformName = piatMap[program.piat] ?? program.piat;
 
-	const { title, description, image, inizio, fine, durata, category } = program.prog;
+	const { title, description, image, inizio, fine, durata, category, bk } = program.prog;
 
 	const startTime = formatLocalTime(inizio);
 	const endTime = formatLocalTime(fine);
@@ -127,7 +128,12 @@ export default function Details() {
 								</View>
 
 								<Text style={styles.categoryLabel}>{category}</Text>
-								<Text style={styles.description}>{description}</Text>
+
+								<View style={{ flex: 1 }}>
+									<View style={{ flexDirection: "row" }}>
+										<DynamicTextWrapper description={description} bk={bk} styles={styles} />
+									</View>
+								</View>
 
 								<View style={styles.problemContainer}>
 									<Text style={styles.infoIcon}>ⓘ</Text>
@@ -315,6 +321,11 @@ const styles = StyleSheet.create({
 		fontSize: 16,
 		fontWeight: "300",
 	},
+	descriptionBk: {
+		color: Colors.greyscale.white,
+		fontSize: 16,
+		fontWeight: "300",
+	},
 	problemContainer: {
 		flexDirection: "row",
 		alignItems: "center",
@@ -371,5 +382,10 @@ const styles = StyleSheet.create({
 	footerIcon: {
 		width: 20,
 		height: 20,
+	},
+	bkImg: {
+		width: 80,
+		height: 80,
+		borderRadius: 8,
 	},
 });
