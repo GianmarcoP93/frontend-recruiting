@@ -3,8 +3,6 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import Colors from "@/constants/Colors";
-import data from "@/data.json";
-import { ProgramData, ProgramItem } from "@/utils/types";
 import { useCurrentProg } from "@/contexts/currentProgContext";
 import { getAllPrograms } from "@/utils/getAllPrograms";
 

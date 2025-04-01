@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Text, View, StyleSheet, Image, Dimensions, ScrollView, TouchableOpacity } from "react-native";
 import { useLocalSearchParams } from "expo-router";
-import data from "@/data.json";
 import { ProgramData, ProgramItem } from "@/utils/types";
 import { formatLocalTime } from "@/utils/dateUtils";
 import { SafeAreaView } from "react-native-safe-area-context";
